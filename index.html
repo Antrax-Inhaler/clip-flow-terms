@@ -3,57 +3,212 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ClipFlow — Terms of Service & Privacy Policy</title>
+<title>ClipFlow — Turn long videos into short, ready-to-post clips</title>
+<meta name="description" content="ClipFlow is a Windows desktop app that turns long-form video into short clips with AI-generated highlights and captions, then publishes them straight to TikTok.">
 <style>
-  body { font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #1a1a1a; }
-  h1 { font-size: 1.6rem; }
-  h2 { font-size: 1.25rem; margin-top: 2.5rem; border-top: 1px solid #ddd; padding-top: 1.5rem; }
-  h3 { font-size: 1.05rem; margin-top: 1.5rem; }
-  .updated { color: #666; font-size: 0.9rem; }
-  section { margin-top: 0.5rem; }
+  :root {
+    --bg: #0b1220;
+    --panel: #121b2e;
+    --text: #eef1f8;
+    --muted: #9aa5b8;
+    --accent: #2dd4bf;
+    --accent2: #2563eb;
+    --border: #22304a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  header.site {
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; background: rgba(11,18,32,0.9); backdrop-filter: blur(6px);
+    z-index: 10;
+  }
+  header.site .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.15rem; color: var(--text); }
+  .brand .logo {
+    width: 30px; height: 30px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; color: #0b1220; font-weight: 800;
+  }
+  nav.top a { color: var(--muted); margin-left: 28px; font-size: 0.95rem; }
+  nav.top a:hover { color: var(--text); }
+
+  .hero { padding: 96px 0 64px; text-align: center; }
+  .hero h1 { font-size: 2.6rem; margin: 0 0 18px; letter-spacing: -0.02em; }
+  .hero h1 span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p.lead { font-size: 1.15rem; color: var(--muted); max-width: 620px; margin: 0 auto 32px; }
+  .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 12px 24px; border-radius: 10px; font-weight: 600; font-size: 0.95rem; }
+  .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #06111f; }
+  .btn.ghost { border: 1px solid var(--border); color: var(--text); }
+  .btn:hover { text-decoration: none; opacity: 0.92; }
+
+  .platform-note { margin-top: 18px; color: var(--muted); font-size: 0.85rem; }
+
+  section.section { padding: 64px 0; border-top: 1px solid var(--border); }
+  section.section h2 { font-size: 1.6rem; margin-bottom: 8px; }
+  section.section p.sub { color: var(--muted); margin-top: 0; margin-bottom: 40px; max-width: 640px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .card {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 22px;
+  }
+  .card .icon {
+    width: 40px; height: 40px; border-radius: 10px; margin-bottom: 14px;
+    background: rgba(45,212,191,0.12); color: var(--accent);
+    display: flex; align-items: center; justify-content: center; font-size: 18px;
+  }
+  .card h3 { margin: 0 0 8px; font-size: 1.05rem; }
+  .card p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; counter-reset: step; }
+  .step { position: relative; padding-left: 44px; }
+  .step::before {
+    counter-increment: step; content: counter(step);
+    position: absolute; left: 0; top: 0;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: rgba(37,99,235,0.15); color: var(--accent2);
+    display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem;
+  }
+  .step h3 { margin: 0 0 6px; font-size: 1rem; }
+  .step p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+  .privacy-band { background: var(--panel); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .privacy-band .wrap { padding: 48px 24px; display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+  .privacy-band .icon-lg { font-size: 2rem; }
+  .privacy-band h2 { margin: 0 0 6px; font-size: 1.3rem; }
+  .privacy-band p { margin: 0; color: var(--muted); max-width: 520px; }
+
+  footer.site { border-top: 1px solid var(--border); padding: 40px 0; }
+  footer.site .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; color: var(--muted); font-size: 0.88rem; }
+  footer.site nav a { color: var(--muted); margin-left: 18px; }
+  footer.site nav a:hover { color: var(--text); }
 </style>
 </head>
 <body>
 
-<h1>ClipFlow</h1>
-<p class="updated">Last updated: August 10, 2026</p>
+<header class="site">
+  <div class="wrap">
+    <div class="brand"><span class="logo">C</span> ClipFlow</div>
+    <nav class="top">
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
 
-<h2 id="terms">Terms of Service</h2>
+<section class="hero">
+  <div class="wrap">
+    <h1>Turn long videos into <span>short, ready-to-post clips</span></h1>
+    <p class="lead">
+      ClipFlow is a Windows desktop app that transcribes your video, finds the moments worth clipping,
+      applies a crop/watermark/caption template, and publishes the result straight to TikTok — without
+      your source footage ever leaving your machine.
+    </p>
+    <div class="cta-row">
+      <a class="btn primary" href="#features">See what it does</a>
+      <a class="btn ghost" href="/terms.html">Terms &amp; Privacy</a>
+    </div>
+    <p class="platform-note">Windows desktop app · local-first processing · currently in private beta</p>
+  </div>
+</section>
 
-<h3>1. About ClipFlow</h3>
-<p>ClipFlow is a desktop application that helps a user turn long-form video into short-form clips, apply a visual template (crop, watermark, captions), and prepare them for posting to social platforms such as TikTok. ClipFlow runs locally on the user's own computer.</p>
+<section class="section" id="features">
+  <div class="wrap">
+    <h2>What ClipFlow does</h2>
+    <p class="sub">Everything happens on your own computer, from importing the source video to queuing the finished clip for TikTok.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">&#9654;</div>
+        <h3>Import &amp; transcribe</h3>
+        <p>Drop in a long-form video or pull one in directly from YouTube. ClipFlow transcribes the audio so it knows what's being said, when.</p>
+      </div>
+      <div class="card">
+        <div class="icon">&#10024;</div>
+        <h3>AI highlight detection</h3>
+        <p>Transcript excerpts are sent to an AI service to surface the strongest moments — the app suggests where a clip should start and end.</p>
+      </div>
+      <div class="card">
+        <div class="icon">&#9986;</div>
+        <h3>Trim &amp; preview</h3>
+        <p>Fine-tune in/out points with an FFmpeg-backed trimmer and play the exact clip back before you commit to a render.</p>
+      </div>
+      <div class="card">
+        <div class="icon">&#9635;</div>
+        <h3>Template editor</h3>
+        <p>Design a reusable crop, watermark, and caption-style template on a visual canvas, then apply it consistently across clips.</p>
+      </div>
+      <div class="card">
+        <div class="icon">&#8593;</div>
+        <h3>Queue &amp; auto-publish</h3>
+        <p>Connect a TikTok account and queue a rendered clip for direct posting — ClipFlow tracks upload progress and status to completion.</p>
+      </div>
+      <div class="card">
+        <div class="icon">&#128274;</div>
+        <h3>Local-first &amp; private</h3>
+        <p>Video files, transcripts, and captions are stored locally in a SQLite database. Only text excerpts leave the device, for captioning.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<h3>2. Acceptable use</h3>
-<p>You agree to use ClipFlow only with video content you own or otherwise have the legal right to edit and publish, and to comply with the terms of service of any platform (including TikTok) you connect ClipFlow to or publish content through.</p>
+<section class="section" id="how-it-works">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <p class="sub">From a long video to a published clip, in four steps.</p>
+    <div class="steps">
+      <div class="step">
+        <h3>Import a video</h3>
+        <p>Load a local file or import from YouTube.</p>
+      </div>
+      <div class="step">
+        <h3>Pick the moment</h3>
+        <p>Review AI-suggested highlights or trim manually.</p>
+      </div>
+      <div class="step">
+        <h3>Apply a template</h3>
+        <p>Crop, watermark, and caption in one pass.</p>
+      </div>
+      <div class="step">
+        <h3>Publish</h3>
+        <p>Queue it to your connected TikTok account.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<h3>3. No warranty</h3>
-<p>ClipFlow is provided "as is," without warranty of any kind. We do not guarantee that generated clips, captions, or automated posts will be accurate, error-free, or accepted by any third-party platform.</p>
+<div class="privacy-band">
+  <div class="wrap">
+    <div class="icon-lg">&#128274;</div>
+    <div>
+      <h2>Your footage stays on your device</h2>
+      <p>ClipFlow doesn't upload your video files anywhere. See exactly what's processed locally and what
+        (only transcript text, for AI captioning) ever leaves your machine in our <a href="/privacy.html">Privacy Policy</a>.</p>
+    </div>
+  </div>
+</div>
 
-<h3>4. Limitation of liability</h3>
-<p>To the fullest extent permitted by law, ClipFlow's developer is not liable for any indirect, incidental, or consequential damages arising from use of the application, including issues with third-party platform accounts.</p>
-
-<h3>5. Changes</h3>
-<p>These terms may be updated from time to time. Continued use of ClipFlow after a change constitutes acceptance of the revised terms.</p>
-
-<h2 id="privacy">Privacy Policy</h2>
-
-<h3>1. Data processed locally</h3>
-<p>ClipFlow processes your video files, transcripts, and generated captions locally on your device in a local SQLite database. This data is not uploaded to any server operated by ClipFlow's developer.</p>
-
-<h3>2. Third-party AI processing</h3>
-<p>To generate captions and clip suggestions, ClipFlow sends transcript excerpts to a third-party AI service on your behalf, from your own device. No video files are uploaded for this purpose — only text.</p>
-
-<h3>3. Platform credentials</h3>
-<p>If you connect a social media account (e.g. TikTok) to ClipFlow to enable posting, any account credentials or tokens are stored locally on your device and are used only to publish content you explicitly choose to post.</p>
-
-<h3>4. No sale of data</h3>
-<p>We do not sell, rent, or share your data with third parties for advertising or marketing purposes.</p>
-
-<h3>5. Data deletion</h3>
-<p>Since all data is stored locally, you can delete it at any time by removing ClipFlow's application data folder or uninstalling the application.</p>
-
-<h3>6. Contact</h3>
-<p>Questions about these terms or this policy can be sent to the developer via the contact details provided in the TikTok Developer Portal app listing.</p>
+<footer class="site">
+  <div class="wrap">
+    <div>&copy; 2026 ClipFlow. All rights reserved.</div>
+    <nav>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="/privacy.html">Privacy Policy</a>
+    </nav>
+  </div>
+</footer>
 
 </body>
 </html>
