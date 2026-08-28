@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ClipFlow — Turn long videos into short, ready-to-post clips</title>
 <meta name="description" content="ClipFlow is a Windows desktop app that turns long-form video into short clips with AI-generated highlights and captions, then publishes them straight to TikTok.">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/icon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
   :root {
     --bg: #0b1220;
@@ -36,9 +39,7 @@
   .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.15rem; color: var(--text); }
   .brand .logo {
     width: 30px; height: 30px; border-radius: 8px;
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 15px; color: #0b1220; font-weight: 800;
+    display: block; object-fit: cover;
   }
   nav.top a { color: var(--muted); margin-left: 28px; font-size: 0.95rem; }
   nav.top a:hover { color: var(--text); }
@@ -144,7 +145,7 @@
 
 <header class="site">
   <div class="wrap">
-    <div class="brand"><span class="logo">C</span> ClipFlow</div>
+    <div class="brand"><img class="logo" src="/icon.png" alt="ClipFlow logo"> ClipFlow</div>
     <nav class="top">
       <a href="#features">Features</a>
       <a href="#platforms">Platforms</a>
